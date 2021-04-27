@@ -31,6 +31,9 @@ class Server {
     //Cors
     this.app.use(cors());
 
+    //PARSEO DEL BODY
+    this.app.use( express.json() );
+
     //API ENDPOINTS
     this.app.use('/api/login', require('../router/auth'));
   }
