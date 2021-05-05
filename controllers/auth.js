@@ -61,7 +61,7 @@ const login = async(req, res) => {
     if(!usuarioDB){
       return res.status(404).json({
         ok:false,
-        msg:"Email no encontrado"
+        msg:"Email no encontrado",
       })
     }
 
@@ -72,7 +72,7 @@ const login = async(req, res) => {
     if(!validPassword){
       return res.status(400).json({
         ok : false,
-        msg : 'password incorrecto esto es una prueba esto no debe colocarse'
+        msg : 'password incorrecto esto es una prueba esto no debe colocarse',
       })
     }
 
@@ -81,7 +81,8 @@ const login = async(req, res) => {
 
     res.json({
       ok : true,
-      token
+      token,
+      usuario : usuarioDB
     });
 
     
