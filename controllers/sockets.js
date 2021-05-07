@@ -10,15 +10,25 @@ const usuarioConeactado = async (uid) => {
 }
 
 const usuarioDesconectado = async (uid) => {
-  console.log("EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE")
-  const usuario = await Usuario.findById(uid);
+  const usuario  = await Usuario.findById(uid);
   usuario.online = false;
   await usuario.save();
 
   return usuario;
 }
 
+const getUsuarios = async () => {
+  const usuarios = await Usuario
+    .find()
+    .sort('-online');
+  return usuarios;
+}
+
+
+
+
 module.exports = {
   usuarioConeactado,
-  usuarioDesconectado
+  usuarioDesconectado,
+  getUsuarios
 }

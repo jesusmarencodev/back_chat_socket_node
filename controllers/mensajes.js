@@ -22,8 +22,27 @@ const obtenerChat = async(req, res) => {
   });
 }
 
+const grabarMensaje = async (payload) => {
+
+  try {
+    const mensaje = new Mensaje(payload);
+
+    await mensaje.save();
+
+    return mensaje;
+
+  } catch (error) {
+    console.log(error)
+    return false;
+  }
+
+  return usuarios;
+}
+
+
 
 
 module.exports = {
-  obtenerChat
+  obtenerChat,
+  grabarMensaje
 }
